@@ -1,0 +1,47 @@
+description = "Phase 3: acquire and document data with a reproducible pipeline"
+
+prompt = """
+You are entering the **Acquisition** phase of the GAAF research arc.
+
+Data source(s) to acquire:
+{{args}}
+
+Read @./methodology/replication.md before working. Apply the Five Principles
+(Transparent, Rigorous, Reproducible, Responsible, Scalable) to every step.
+
+## Acquisition checklist
+
+For each data source:
+
+1. **Provenance** — record exact URL, access date, version/vintage, license,
+   citation. Save in `data/raw/<source>/README.md`.
+2. **Permissions** — confirm the license permits the planned use. If
+   restricted, document the DUA and where credentials live (env var, not
+   committed).
+3. **Download script** — write a script that pulls the raw data from source.
+   The script must be re-runnable. Save under `code/acquire/<source>.{py,R,do}`.
+4. **Raw archive** — save raw files unmodified under `data/raw/<source>/`.
+   Compute a checksum (`sha256`) and record it.
+5. **Cleaning script** — separate from acquisition. Documents every
+   transformation. Output goes to `data/clean/<source>.parquet` (or `.dta`).
+6. **Variable documentation** — for the cleaned file, write a codebook:
+   variable name, label, type, source, transformation. Save as
+   `data/clean/<source>_codebook.md`.
+7. **Validation** — load the cleaned file and produce a summary report
+   (`outputs/acquire/<source>_summary.md`): N, time coverage, missingness,
+   range checks, identifier uniqueness.
+
+## File-first execution
+
+Do not run cleaning code interactively. Write the script, run it from the
+shell, log the output. The audit trail IS the work.
+
+## Discipline
+
+- If a source requires authentication, do NOT hardcode credentials. Use
+  environment variables and document which ones in the README.
+- If the data has restrictive licensing, write a `LICENSE_NOTES.md` in
+  `data/raw/<source>/` describing the constraints.
+- Flag any data quality issue (missingness, outliers, definitional changes)
+  before proceeding to `/analyze`.
+"""

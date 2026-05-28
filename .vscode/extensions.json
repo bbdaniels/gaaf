@@ -1,0 +1,11 @@
+{
+  "recommendations": [
+    "google.geminicodeassist",
+    "ms-python.python",
+    "ms-python.vscode-pylance",
+    "reditorsupport.r",
+    "james-yu.latex-workshop",
+    "tamasfe.even-better-toml",
+    "redhat.vscode-yaml"
+  ]
+}

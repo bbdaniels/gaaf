@@ -1,0 +1,20 @@
+{
+  "$schema": "https://raw.githubusercontent.com/google-gemini/gemini-cli/main/schemas/settings.schema.json",
+  "context": {
+    "fileName": ["GEMINI.md"]
+  },
+  "general": {
+    "defaultApprovalMode": "default",
+    "plan": {
+      "enabled": true
+    }
+  },
+  "mcpServers": {
+    "gaaf": {
+      "command": "gaaf-mcp",
+      "args": [],
+      "timeout": 30000,
+      "trust": false
+    }
+  }
+}

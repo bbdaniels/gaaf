@@ -1,0 +1,13 @@
+// Copy this to .vscode/settings.json after install.
+// Workspace settings file is .gitignored by default to avoid leaking per-user
+// preferences; this template provides recommended defaults.
+{
+  "files.associations": {
+    "*.tex": "latex"
+  },
+  "latex-workshop.latex.recipe.default": "latexmk (xelatex)",
+  "python.terminal.activateEnvInCurrentTerminal": true,
+  "[python]": {
+    "editor.formatOnSave": true
+  }
+}

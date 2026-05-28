@@ -1,0 +1,48 @@
+description = "Phase 5: draft tables, figures, and narrative tied to outputs"
+
+prompt = """
+You are entering the **Synthesis** phase of the GAAF research arc.
+
+Synthesis target (paper section, slide, memo, …):
+{{args}}
+
+Read @./methodology/writing-style.md before drafting. Apply the anti-hedging
+and notation rules.
+
+## Synthesis discipline
+
+- **Numbers via `\\input{}`** — every coefficient, SE, p-value, sample size,
+  percentage, count, mean, median, or CI cited in prose must come from a
+  generated `outputs/results/<name>.tex` fragment. Do NOT type a number from
+  memory or from log output.
+- **Tables and figures** — reference existing files under `outputs/tables/`
+  and `outputs/figures/`. If the table you need does not exist, propose it
+  and route back to `/analyze` rather than fabricating a placeholder.
+- **Claims-evidence alignment** — every empirical claim in prose must point
+  to a specific table, figure, or `.tex` fragment. Use `\\autoref{}` or an
+  explicit "(Table 3, Col 2)" pointer.
+- **Hedging discipline** — write "the coefficient is 0.12 (SE 0.04)", not
+  "the coefficient is approximately 0.12" or "may be around 0.12". Effect
+  sizes carry units; percent changes carry baselines.
+- **Notation consistency** — once a variable is named, use that name and
+  symbol throughout. Define each symbol on first use.
+
+## Structure (for a paper section)
+
+If drafting a section:
+
+1. **Topic sentence** stating the finding.
+2. **Evidence** — table/figure pointer + the key number.
+3. **Mechanism** or interpretation.
+4. **Bound** — what this finding does NOT say.
+
+Repeat per finding. Avoid throat-clearing sentences ("In this section we
+discuss …").
+
+## Output
+
+- Default: append to or create `manuscript/<section>.tex`.
+- Maintain a `manuscript/main.tex` that `\\input{}`s sections in order.
+- After drafting, list every `\\input{}` and `\\cite{}` so the researcher can
+  verify the dependency graph.
+"""

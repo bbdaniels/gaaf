@@ -1,0 +1,39 @@
+# GAAF .gitignore
+
+# User-specific VSCode settings (template provided)
+.vscode/settings.json
+
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.venv/
+venv/
+
+# Build / dist
+dist/
+build/
+
+# Logs (project-level)
+logs/
+
+# OS / editor cruft
+.DS_Store
+*.swp
+
+# Data and outputs are gitignored by default. Comment out a line if you
+# want to commit small reference data or outputs for a specific project.
+data/raw/
+data/clean/
+outputs/
+
+# LaTeX artifacts
+*.aux
+*.bbl
+*.blg
+*.fdb_latexmk
+*.fls
+*.log
+*.out
+*.toc
+*.synctex.gz

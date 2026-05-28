@@ -1,0 +1,26 @@
+{
+  "name": "GAAF dev container",
+  "image": "mcr.microsoft.com/devcontainers/python:3.12",
+  "features": {
+    "ghcr.io/devcontainers/features/node:1": { "version": "20" },
+    "ghcr.io/devcontainers/features/git:1": {},
+    "ghcr.io/rocker-org/devcontainer-features/r-apt:0": { "version": "4.4" }
+  },
+  "postCreateCommand": "bash install.sh",
+  "customizations": {
+    "vscode": {
+      "extensions": [
+        "google.geminicodeassist",
+        "ms-python.python",
+        "ms-python.vscode-pylance",
+        "reditorsupport.r",
+        "james-yu.latex-workshop",
+        "tamasfe.even-better-toml"
+      ]
+    }
+  },
+  "mounts": [
+    "source=${localEnv:HOME}/.gemini,target=/home/vscode/.gemini,type=bind,consistency=cached"
+  ],
+  "remoteUser": "vscode"
+}

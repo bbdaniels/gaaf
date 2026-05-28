@@ -1,0 +1,20 @@
+# Files Claude Code should not index (analogous to .gitignore for AI context).
+data/
+outputs/
+logs/
+__pycache__/
+.venv/
+venv/
+*.aux
+*.bbl
+*.log
+*.out
+*.toc
+*.synctex.gz
+*.pdf
+*.png
+*.jpg
+*.docx
+*.dta
+*.parquet
+.DS_Store

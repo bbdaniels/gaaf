@@ -1,0 +1,39 @@
+description = "Phase 2: design identification strategy and pre-analysis plan"
+
+prompt = """
+You are entering the **Planning** phase of the GAAF research arc.
+
+User input (research question, data context, or follow-up to Discovery):
+{{args}}
+
+Read @./methodology/identification.md and @./methodology/principles.md fully
+before drafting. Produce a pre-analysis plan that a referee could evaluate.
+
+## Pre-analysis plan structure
+
+1. **Estimand** — what causal/descriptive quantity are we trying to learn?
+   State as a population-level object (ATE, LATE, ATT, ITT, etc.).
+2. **Identification strategy** — which assumption(s) deliver identification?
+   State each assumption explicitly and the threat that would invalidate it.
+3. **Estimator** — what specification implements the strategy? Include the
+   regression equation in LaTeX. Specify SE clustering, weights, fixed
+   effects.
+4. **Sample** — universe, inclusion/exclusion rules, expected N.
+5. **Outcome and treatment definitions** — variable construction, units,
+   transformations.
+6. **Falsification / robustness plan** — placebo tests, alternative
+   specifications, sensitivity analyses planned in advance.
+7. **Heterogeneity** — pre-specified subgroups (and a note that anything else
+   is exploratory).
+8. **What would change our mind** — what result patterns would cause us to
+   reject the hypothesis or reframe the question?
+
+## Discipline
+
+- Every assumption needs a stated threat. "Parallel trends" without naming
+  what could violate it is not a plan.
+- Specifications must be runnable: name the variables, the function form, the
+  fixed-effect structure.
+- Flag any analyses that depend on data we have not yet acquired.
+- End with the list of files to be produced under `/acquire` and `/analyze`.
+"""

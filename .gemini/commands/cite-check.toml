@@ -1,0 +1,49 @@
+description = "Verify every cite is real and the claim matches the source"
+
+prompt = """
+You are running a **citation discipline pass** over the supplied manuscript
+or section.
+
+Target file or text:
+{{args}}
+
+Read @./methodology/citation-discipline.md before starting.
+
+## Per-citation checklist
+
+For every `\\cite{key}` (or markdown `[Author Year]`) in the target:
+
+1. **Resolve** — find the `.bib` entry for `key`. If missing, flag as
+   `[BROKEN CITE]` and stop.
+2. **Canonical identity** — call the GAAF MCP tool `crossref_lookup` with
+   the bib entry's title (or DOI). Verify:
+   - DOI in the bib matches Crossref
+   - Authors, year, venue agree
+   - Flag any mismatch
+3. **Claim alignment** — read the sentence that contains the cite. State in
+   one line what the sentence claims the source shows. If you have the
+   source's full text available (Zotero, repo, supplied PDF), verify the
+   claim matches. If not, mark `[CLAIM UNVERIFIED]` and continue.
+4. **Quote vs paraphrase** — if the prose uses quote marks, the quoted
+   string must appear verbatim in the source. Otherwise it is a paraphrase
+   and quote marks must be removed.
+
+## Output
+
+Produce a table:
+
+| Cite key | Status | DOI match | Claim status | Note |
+|---|---|---|---|---|
+| smith2020 | OK | ✓ | verified | — |
+| jones2019 | BROKEN | — | — | not in .bib |
+| nguyen2024 | OK | ✗ | unverified | DOI mismatch — check |
+
+End with a summary: total cites, # OK, # broken, # unverified, # mismatched.
+
+## Discipline
+
+- Never silently fix a broken cite. Surface it; let the researcher decide
+  how to resolve.
+- Never invent a DOI or correct an author name without showing what changed
+  and why.
+"""

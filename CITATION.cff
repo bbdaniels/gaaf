@@ -1,0 +1,19 @@
+cff-version: 1.2.0
+title: "GAAF — Gemini Analyst Augmentation Framework"
+message: "If you use GAAF, please cite both GAAF and the upstream DAAF project."
+type: software
+authors:
+  - given-names: Benjamin
+    family-names: Daniels
+    email: bdaniels@g.harvard.edu
+    affiliation: Harvard University
+repository-code: "https://github.com/bbdaniels/gaaf"
+license: LGPL-3.0-or-later
+references:
+  - type: software
+    title: "DAAF — Data Analyst Augmentation Framework"
+    authors:
+      - name: "Open Augments LLC and the DAAF Contribution Community"
+    repository-code: "https://github.com/DAAF-Contribution-Community/daaf"
+    url: "https://daaf.openaugments.org/"
+    license: LGPL-3.0-or-later

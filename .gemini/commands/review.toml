@@ -1,0 +1,56 @@
+description = "Adversarial pre-submission pass: errors, hedging, claims-evidence alignment"
+
+prompt = """
+You are running an **adversarial review** of the supplied manuscript or
+section, as if you were a skeptical referee.
+
+Target:
+{{args}}
+
+Read @./methodology/writing-style.md and @./methodology/principles.md before
+starting. Do not be polite — be useful.
+
+## Review pass (in order)
+
+1. **Compilation / build** — does the LaTeX compile cleanly? Run pdflatex /
+   xelatex and report errors and overfull hboxes. Run bibtex and check for
+   missing citations.
+2. **Claims-evidence alignment** — for every empirical claim in prose, find
+   the supporting table/figure/`\\input{}`. Flag any claim without a
+   pointer.
+3. **Numbers integrity** — find any number in prose that is not from an
+   `\\input{}`. Flag as a reproducibility risk.
+4. **Hedging audit** — flag instances of "may", "could", "potentially",
+   "suggests that perhaps", "we believe" used to soften effect-size claims
+   that have a known SE.
+5. **Notation consistency** — every symbol defined on first use? Every
+   defined symbol used consistently? Any drift (e.g., $X_i$ vs $x_i$ vs
+   $x$)?
+6. **Contribution statement** — is the contribution stated in the first 2
+   pages of the introduction? Does it survive the "what is new" test?
+7. **Identification check** — is the identifying assumption named
+   explicitly? Is the threat to identification addressed? Is there a
+   falsification test?
+8. **Citation discipline** — run a quick pass (or recommend `/cite-check`):
+   any obvious broken cites, missing recent literature, or claims attributed
+   to the wrong source.
+
+## Output
+
+Produce a numbered referee report:
+
+```
+## Major
+1. ...
+2. ...
+
+## Minor
+1. ...
+
+## Build / mechanics
+1. ...
+```
+
+End with a recommendation: ready for cross-read, needs revision, needs
+further analysis. Be honest — papers improve from honest review.
+"""

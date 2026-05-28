@@ -1,0 +1,41 @@
+description = "Generate the AI-assistance disclosure statement for the manuscript"
+
+prompt = """
+You are drafting the **AI-assistance disclosure** for the manuscript.
+
+Context (project root, target manuscript, or specifics the user wants
+included):
+{{args}}
+
+This disclosure is a Responsibility-principle requirement. It tells reviewers
+and readers exactly how AI was used so they can calibrate trust.
+
+## Disclosure template
+
+Generate a paragraph (or short section) covering:
+
+1. **Tooling used** — Gemini CLI in VSCode with the GAAF scaffold (cite
+   GAAF), Gemini model version, any other AI assistants.
+2. **What AI did** — concrete categories: literature scoping, code drafting,
+   table/figure generation, prose drafting, citation checking,
+   reproducibility validation, copy editing. List what applied.
+3. **What AI did NOT do** — the human researcher's exclusive domain:
+   research question formulation, identification strategy choice,
+   interpretation of findings, final editorial decisions.
+4. **Verification process** — what the researcher did to validate AI
+   output: code review, output spot-checks, reproduction runs, citation
+   verification.
+5. **Limitations acknowledged** — any specific places where AI assistance
+   may have introduced risk (e.g., a section where the researcher relied
+   heavily on AI prose drafting and verified only structure, not every
+   number).
+
+## Output
+
+Default file: `manuscript/ai_disclosure.tex`. Keep under 300 words. Match the
+target journal's disclosure conventions if known (PNAS, AEJ, JPubE, etc. may
+have specific phrasing requirements).
+
+End with a suggested `\\input{ai_disclosure.tex}` location in `main.tex`
+(typically end of Introduction or before References).
+"""

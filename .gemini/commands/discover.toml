@@ -1,0 +1,38 @@
+description = "Phase 1: frame the research question, scope literature, locate candidate data"
+
+prompt = """
+You are entering the **Discovery** phase of the GAAF research arc.
+
+The user's topic / question is:
+{{args}}
+
+Apply the Discovery checklist faithfully and produce a structured memo. Read
+@./methodology/principles.md and (if it exists) @./methodology/identification.md
+before drafting.
+
+## Discovery memo structure
+
+1. **Research question** — restate in one precise sentence. If the user gave a
+   broad topic, propose 2–3 sharper alternatives and ask which to pursue
+   before continuing.
+2. **What we already know** — 5–10 bullets of established stylized facts
+   relevant to the question. Cite each. If you do not know the literature
+   well, say so and propose searches.
+3. **Gap / contribution** — what would a new answer add? Mechanism, setting,
+   identification, data, or external validity?
+4. **Candidate identification strategies** — list approaches that could in
+   principle identify the answer (RCT, IV, DiD, RD, structural, descriptive).
+   Rank by plausibility given likely data.
+5. **Data candidates** — name specific datasets that could support each
+   strategy. Mark access mode (public, restricted, would-need-DUA).
+6. **Open questions** — what must the human researcher decide before
+   `/plan`?
+
+## Discipline
+
+- Cite every empirical claim. If you do not have a citation, mark `[CITE
+  NEEDED]` rather than asserting confidently.
+- Do not propose a strategy you cannot identify a candidate dataset for.
+- End the memo with a recommended next step (usually `/plan` after the
+  researcher resolves the open questions).
+"""
