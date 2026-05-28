@@ -7,19 +7,24 @@ VSCode extension.
 
 GAAF is an **adaptation** of the
 [Data Analyst Augmentation Framework (DAAF)](https://daaf.openaugments.org/)
-for the Gemini ecosystem. DAAF targets Claude Code; GAAF targets Gemini CLI
-and Antigravity. See [`CREDITS.md`](CREDITS.md) for attribution.
+for the Gemini ecosystem. DAAF targets Claude Code; GAAF v0.1 targets
+Gemini CLI inside VSCode (via the Gemini Code Assist extension). An
+Antigravity adapter is on the roadmap — Antigravity uses different config
+paths (`~/.gemini/config/mcp_config.json`, `~/.gemini/skills/`) than the
+workspace-level paths GAAF currently ships. See [`CREDITS.md`](CREDITS.md)
+for attribution.
 
 ## What you get
 
 - `GEMINI.md` — research-grade system prompt loaded automatically
-- `.gemini/commands/` — slash commands for the research workflow:
+- `.gemini/commands/` — 8 slash commands for the research workflow:
   `/discover`, `/plan`, `/acquire`, `/analyze`, `/synthesize`, `/cite-check`,
   `/disclose`, `/review`
-- `.gemini/skills/` — agent skills (data-scientist, polars, statsmodels,
-  pyfixest, plotnine, …) loaded on demand
 - `mcp-server/` — local MCP server for deterministic checks (Crossref
   lookups, bibliography validation)
+- *(roadmap)* `.gemini/skills/` — agent skills (data-scientist, polars,
+  statsmodels, pyfixest, plotnine, …) loaded on demand. Not yet shipped
+  in v0.1; the slash commands work standalone.
 - `methodology/` — econ-flavored methodology references (identification,
   replication, citations, writing)
 - `install.sh` / `install.ps1` — one-shot setup for macOS/Linux and Windows
@@ -73,8 +78,7 @@ gaaf/
 ├── GEMINI.md                  # system prompt (auto-loaded)
 ├── .gemini/
 │   ├── settings.json          # MCP server registration
-│   ├── commands/              # slash commands (TOML)
-│   └── skills/                # agent skills (on-demand)
+│   └── commands/              # slash commands (TOML)
 ├── .vscode/
 │   └── extensions.json        # pins Gemini Code Assist
 ├── .devcontainer/             # optional Docker isolation
